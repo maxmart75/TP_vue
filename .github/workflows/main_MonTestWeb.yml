@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_620a0eca184d4d75bea305ac7ce0e007 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_31995c71422c4b119e50d9891fcc3627 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_a6b7a3301df44b81b437d2ede84955d8 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_c3df81ba90fe4ebdb87f65a88b9dd1bb }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_620a0eca184d4d75bea305ac7ce0e007 }}/vue-app:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6b7a3301df44b81b437d2ede84955d8 }}/maxmart5975/coucou_reda:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'MonTestWeb'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_de0a4ed4c63b4822bcc8b90c5e581c78 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_620a0eca184d4d75bea305ac7ce0e007 }}/vue-app:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0195636f8b074a94925a35f0c3ae8109 }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6b7a3301df44b81b437d2ede84955d8 }}/maxmart5975/coucou_reda:${{ github.sha }}'
