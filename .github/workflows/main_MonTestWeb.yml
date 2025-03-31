@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6b7a3301df44b81b437d2ede84955d8 }}/maxmart5975/coucou_reda:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6b7a3301df44b81b437d2ede84955d8 }}/coucou_reda:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'MonTestWeb'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_0195636f8b074a94925a35f0c3ae8109 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6b7a3301df44b81b437d2ede84955d8 }}/maxmart5975/coucou_reda:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_a6b7a3301df44b81b437d2ede84955d8 }}/coucou_reda:${{ github.sha }}'
